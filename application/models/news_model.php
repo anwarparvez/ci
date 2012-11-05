@@ -1,6 +1,6 @@
 <?php
 
-class Blog_model extends CI_Model {
+class News_model extends CI_Model {
 
     var $title = '';
 

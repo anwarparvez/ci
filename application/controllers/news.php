@@ -13,15 +13,24 @@ class News extends CI_Controller {
 
     public function index() {
 
-        $this->load->model('Blog_model');
+        $this->load->model('News_model');
 
-        $data['query'] = $this->Blog_model->get_last_ten_entries();
+        $data['query'] = $this->News_model->get_last_ten_entries();
 
         $this->load->view('news_view', $data);
     }
 
+    public function post()
+    {
+        $this->load->view('news_post_view');
+    }
+
+    public function news_insert()
+    {
+
+    }
     public function comments() {
-        $this->load->model('Blog_model');
+        $this->load->model('News_model');
         $data['query'] = $this->Blog_model->get_news($this->uri->segment(3));
         $this->load->model('Comment_model');
         $data['comments'] = $this->Comment_model->get_comments($this->uri->segment(3));

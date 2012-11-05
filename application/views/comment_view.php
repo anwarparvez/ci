@@ -9,26 +9,8 @@
 
     <body id="index" class="home">
 
-       <header id="banner" class="body">
-            <h1><a href="#">News Hour! <strong>24 hr news portal  </strong></a></h1>
-            <nav><ul>
-                    <li ><?php echo anchor('news/', 'Home'); ?></li>
-                    <li class="active">
-                        <?php
-                        if ($this->session->userdata('logged_in')) {
-                            echo anchor('news/logout', 'Logout');
-                        }
-                        else{
-                             echo anchor('login/', 'Login');
-                        }
-                        ?>
-                    </li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header><!-- /#banner -->
-        
+        <?php include_once 'header.php'; ?>
+
         <?php foreach ($query as $row) { ?>
             <aside id="featured" class="body">
                 <article>
@@ -38,7 +20,7 @@
                     <hgroup>
                         <h2>  <?php echo anchor('blog/comments/' . $row->id, $row->title); ?></h2>
                         <h3>         <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
-            						10th October 2005
+                    						10th October 2005
 
                             </abbr></h3>
                     </hgroup>
@@ -59,7 +41,7 @@
                                     <?php echo $row->author; ?>
                                 </h2>
                                 <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
-            						10th October 2005
+                    						10th October 2005
 
                                 </abbr>
 
@@ -133,23 +115,7 @@
             </div>
         </section>
 
-        <footer id="contentinfo" class="body">
-            <address id="about" class="vcard body">
-                <span class="primary">
-                    <strong><a href="#" class="fn url">News Hour</a></strong>
-                    <span class="role">24hr news portal</span>
-                </span><!-- /.primary -->
-
-                <img src="images/avatar.gif" alt="Smashing Magazine Logo" class="photo">
-
-                <span class="bio">Smashing Magazine is a website and blog that offers
-                    resources and advice to web developers and web designers. It was
-                    founded by Sven Lennartz and Vitaly Friedman.</span>
-
-            </address><!-- /#about -->
-
-            <p>2005-2009 <a href="http://smashingmagazine.com/">Smashing Magazine</a>.</p>
-        </footer><!-- /#contentinfo -->
+        <?php include_once 'footer.php'; ?>
 
 
     </body></html>

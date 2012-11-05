@@ -8,7 +8,7 @@
 
     <body id="index" class="home">
 
-`````<?php include 'header.php'?>
+        `````<?php include 'header.php' ?>
 
         <aside id="featured" class="body">
             <article>
@@ -26,44 +26,39 @@
         <section id="content" class="body">
 
             <ol id="posts-list" class="hfeed">
-                <?php foreach ($query as $row) { ?>
+                <?php echo form_open('news/news_insert'); ?>
 
-                    <li><article class="hentry">
-                            <header>
-                                <h2 class="entry-title">
-                                    <?php echo anchor('news/comments/' . $row->id, $row->title); ?>
-                                </h2>
-                                <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
+                <li><article class="hentry">
+                        <header>
+                            <h2 class="entry-title">
+                                Title: <br/><input type="text" name="title"/>
+                            </h2>
+                            <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
             						10th October 2005
+                            </abbr>
 
-                                </abbr>
+                        </header>
 
-                            </header>
+                        <div class="entry-content">
+                            <p>Short Body:<br/><textarea rows="10" name="sbody"></textarea></p>
+                        </div><!-- /.entry-content -->
 
+                        <div class="entry-content">
+                            <p>Body:<br/> <textarea rows="10" name="body"></textarea></p>
+                        </div><!-- /.entry-content -->
+                        <br/>
+                        <input type="submit" value="Post"/>
+                        </form>
+                    </article>
+                </li>
 
-                            <div class="entry-content">
-                                <p><?php echo $row->body ?><?php echo anchor('news/comments/' . $row->id, 'read more'); ?></p>
-                            </div><!-- /.entry-content -->
-                        </article>
-                    </li>
-                <?php } ?>
 
             </ol><!-- /#posts-list -->
 
         </section><!-- /#content -->
 
         <section id="extras" class="body">
-            <div class="blogroll">
-                <h2>Recent News</h2>
 
-                <ul>
-
-                    <?php foreach ($query as $row) { ?>
-
-                        <li> <?php echo anchor('news/comments/' . $row->id, $row->title); ?></li>
-                    <?php } ?>
-                </ul>
-            </div>
 
             <div class="social">
                 <h2>social</h2>
@@ -78,7 +73,7 @@
             </div>
         </section>
 
-    <?php include 'footer.php';?>
+        <?php include 'footer.php'; ?>
 
 
     </body></html>
