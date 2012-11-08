@@ -7,7 +7,7 @@ class VerifyRegistration extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('user', '', TRUE);
+        $this->load->model('User_model');
     }
 
     function match_password($cpassword)
@@ -41,7 +41,7 @@ class VerifyRegistration extends CI_Controller {
             $this->load->view('registration_view');
         } else {
             //Go to private area
-            $this->user->insert_user();
+            $this->User_model->insert_user();
             redirect('login', 'refresh');
         }
     }
@@ -50,7 +50,7 @@ class VerifyRegistration extends CI_Controller {
         //Field validation succeeded.  Validate against database
         //query the database
        //  $username = $this->input->post('username');
-        $result = $this->user->user_exist($username);
+        $result = $this->User_modelS->user_exist($username);
 
         if ($result) {
             $this->form_validation->set_message('check_user', 'Username exist');

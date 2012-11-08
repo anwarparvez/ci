@@ -16,22 +16,28 @@
                     <img src="<?php echo base_url(); ?>images/sm-logo.gif" alt="Smashing Magazine">
                 </figure>
                 <hgroup>
-                    <h2> Login</h2>
+                    <h2> Profile</h2>
                 </hgroup>
                 <p>
-                <p>
-                    <?php echo validation_errors(); ?>
-                </p>
 
-                <?php echo form_open('verifylogin'); ?>
-                <label for="username">Username:</label>
-                <input type="text" size="20" id="username" name="username"/>
-                <br/>
-                <label for="password">Password:</label>
-                <input type="password" size="20" id="passowrd" name="password"/>
-                <br/>
-                <input type="submit" value="Login"/>
-                </form></p>
+                <?php foreach ($query as $row) { ?>
+
+                    <label for="username">Name:</label>
+                    <?php echo $row->name; ?>
+                    <br/>
+
+                    <label for="username">Username:</label>
+                    <?php echo $row->username; ?>
+
+                    <br/>
+                    <label for="password">Password:</label>
+                        <?php     echo $row->password;?>
+                    <br/>
+                    <label for="username">Email :</label>
+                        <?php     echo $row->email;?>
+                    <br/>
+                          <?php echo anchor('user/edit','Edit Profile'); ?>
+                <?php } ?></p>
             </article>
         </aside><!-- /#featured -->
 
@@ -39,4 +45,5 @@
 
         <?php include 'footer.php'; ?>
 
-    </body></html>
+    </body>
+</html>

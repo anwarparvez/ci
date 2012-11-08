@@ -1,8 +1,8 @@
         <footer id="contentinfo" class="body">
             <address id="about" class="vcard body">
                 <span class="primary">
-                    <strong><a href="#" class="fn url">News Hour</a></strong>
-                    <span class="role">24hr news portal</span>
+                    <strong><a href="#" class="fn url">News Room</a></strong>
+                    <span class="role">24 hr news portal</span>
                 </span><!-- /.primary -->
 
                 <img src="<?php echo base_url(); ?>/images/avatar.gif" alt="Smashing Magazine Logo" class="photo">

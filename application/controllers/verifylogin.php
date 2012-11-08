@@ -5,7 +5,7 @@ class VerifyLogin extends CI_Controller {
  function __construct()
  {
    parent::__construct();
-   $this->load->model('user','',TRUE);
+   $this->load->model('User_model');
  }
 
  function index()
@@ -24,7 +24,7 @@ class VerifyLogin extends CI_Controller {
    else
    {
      //Go to private area
-     redirect('blog', 'refresh');
+     redirect('news', 'refresh');
    }
 
  }
@@ -35,7 +35,7 @@ class VerifyLogin extends CI_Controller {
    $username = $this->input->post('username');
 
    //query the database
-   $result = $this->user->login($username, $password);
+   $result = $this->User_model->login($username, $password);
 
    if($result)
    {
@@ -44,7 +44,8 @@ class VerifyLogin extends CI_Controller {
      {
        $sess_array = array(
          'id' => $row->id,
-         'username' => $row->username
+         'username' => $row->username,
+          'is_admin' => $row->is_admin
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }

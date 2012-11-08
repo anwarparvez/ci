@@ -22,16 +22,42 @@ class News extends CI_Controller {
 
     public function post()
     {
-        $this->load->view('news_post_view');
+        if ($this->session->userdata('logged_in')) {
+             $session_data = $this->session->userdata('logged_in');
+             if($session_data['is_admin']==1)
+             {
+                  $this->load->view('news_post_view');
+             }
+             else
+             {
+                  $this->load->view('login');
+             }
+
+        }
+        else
+        {
+
+        }
     }
 
     public function news_insert()
     {
 
+       if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            $_POST['user_id']=1;
+            $_POST['user_id'] = $session_data['id'];
+            $this->load->model('News_model');
+            $this->News_model->insert_news();
+            redirect('news/');
+        } else {
+            //If no session, redirect to login page
+            redirect('login', 'refresh');
+        }
     }
     public function comments() {
         $this->load->model('News_model');
-        $data['query'] = $this->Blog_model->get_news($this->uri->segment(3));
+        $data['query'] = $this->News_model->get_news($this->uri->segment(3));
         $this->load->model('Comment_model');
         $data['comments'] = $this->Comment_model->get_comments($this->uri->segment(3));
         $this->load->view('comment_view', $data);

@@ -14,15 +14,15 @@
         <?php foreach ($query as $row) { ?>
             <aside id="featured" class="body">
                 <article>
-                    <figure>
+<!--                    <figure>
                         <img src="images/sm-logo.gif" alt="Smashing Magazine">
-                    </figure>
+                    </figure>-->
                     <hgroup>
                         <h2>  <?php echo anchor('blog/comments/' . $row->id, $row->title); ?></h2>
-                        <h3>         <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
-                    						10th October 2005
+                        <h6>         <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
+                    						<?php echo date("l F jS, Y - g:ia",time($row->date))?>
 
-                            </abbr></h3>
+                            </abbr></h6>
                     </hgroup>
                     <p><?php echo $row->body ?><?php echo anchor('blog/comments/' . $row->id, 'read more'); ?></p>
                 </article>
@@ -41,7 +41,7 @@
                                     <?php echo $row->author; ?>
                                 </h2>
                                 <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
-                    						10th October 2005
+                    						<?php echo $row->date?>
 
                                 </abbr>
 
@@ -58,7 +58,7 @@
                 <li><article class="hentry">
                         <!--                        <header>
                                                     <h2 class="entry-title">
-                        <?php echo anchor('blog/comments/' . $row->id, $row->title); ?>
+                        <?php echo anchor('news/comments/' . $row->id, $row->title); ?>
                                                     </h2>
                                                     <abbr class="published" title="2005-10-10T14:07:00-07:00"> YYYYMMDDThh:mm:ss+ZZZZ
     						10th October 2005
@@ -72,9 +72,9 @@
                             <?php
                             // put your code here
                             ?>
-                            <?php echo form_open('blog/comment_insert'); ?>
+                            <?php echo form_open('news/comment_insert'); ?>
                             <?php echo form_hidden('entry_id', $this->uri->segment(3)); ?>
-                            <p><input type="text" value="Parvez" name="author"/></p>
+<!--                            <p><input type="text" value="Parvez" name="author"/></p>-->
                             <p><textarea rows="10" name="body"></textarea></p>
                             <input value="Submit Comment" type="submit"/>
                             </form>
@@ -88,7 +88,7 @@
             </ol><!-- /#posts-list -->
 
         </section><!-- /#content -->
-
+<!--
         <section id="extras" class="body">
             <div class="blogroll">
                 <h2>Recent News</h2>
@@ -97,7 +97,7 @@
 
                     <?php foreach ($query as $row) { ?>
 
-                        <li> <?php echo anchor('blog/comments/' . $row->id, $row->title); ?></li>
+                        <li> <?php echo anchor('news/comments/' . $row->id, $row->title); ?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -113,7 +113,7 @@
                     <li><a href="http://twitter.com/enrique_ramirez" rel="me">twitter</a></li>
                 </ul>
             </div>
-        </section>
+        </section>-->
 
         <?php include_once 'footer.php'; ?>
 

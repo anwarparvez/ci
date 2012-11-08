@@ -8,9 +8,9 @@
 
     <body id="index" class="home">
 
-`````<?php include 'header.php'?>
+        <?php include 'header.php' ?>
 
-        <aside id="featured" class="body">
+<!--        <aside id="featured" class="body">
             <article>
                 <figure>
                     <img src="images/sm-logo.gif" alt="Smashing Magazine">
@@ -21,7 +21,7 @@
                 </hgroup>
                 <p>Discover how to use Graceful Degradation and Progressive Enhancement techniques to achieve an outstanding, cross-browser <a href="http://dev.w3.org/html5/spec/Overview.html" rel="external">HTML5</a> and <a href="http://www.w3.org/TR/css3-roadmap/" rel="external">CSS3</a> website today!</p>
             </article>
-        </aside><!-- /#featured -->
+        </aside> /#featured -->
 
         <section id="content" class="body">
 
@@ -34,7 +34,7 @@
                                     <?php echo anchor('news/comments/' . $row->id, $row->title); ?>
                                 </h2>
                                 <abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
-            						10th October 2005
+                						<?php echo date("l F jS, Y - g:ia",time($row->date))?>
 
                                 </abbr>
 
@@ -42,7 +42,7 @@
 
 
                             <div class="entry-content">
-                                <p><?php echo $row->body ?><?php echo anchor('news/comments/' . $row->id, 'read more'); ?></p>
+                                <p><?php echo $row->sbody ?><?php echo anchor('news/comments/' . $row->id, 'read more'); ?></p>
                             </div><!-- /.entry-content -->
                         </article>
                     </li>
@@ -78,7 +78,7 @@
             </div>
         </section>
 
-    <?php include 'footer.php';?>
+        <?php include 'footer.php'; ?>
 
 
     </body></html>
