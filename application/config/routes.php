@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "login";
+$route['default_controller'] = "user/login";
 $route['scaffolding_trigger'] = "scaffolding";
 $route['404_override'] = '';
 

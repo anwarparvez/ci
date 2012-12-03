@@ -22,13 +22,16 @@
                             </h2>
 
                         </header>
+                       
 
                         <div class="entry-content">
-                            <p>Short Body:<br/><textarea rows="10" name="sbody"></textarea></p>
+                            Short Body:
+                            <p><textarea placeholder="short description of news here!" name="sbody" cols="80" rows="5"></textarea></p>
                         </div><!-- /.entry-content -->
 
                         <div class="entry-content">
-                            <p>Body:<br/> <textarea rows="10" name="body"></textarea></p>
+                            Body:
+                                <p><textarea placeholder="Body of news here!" name="body" cols="80" rows="5"></textarea></p>
                         </div><!-- /.entry-content -->
                         <br/>
                         <input type="submit" value="Post"/>

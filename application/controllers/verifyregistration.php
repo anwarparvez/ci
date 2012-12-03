@@ -42,7 +42,7 @@ class VerifyRegistration extends CI_Controller {
         } else {
             //Go to private area
             $this->User_model->insert_user();
-            redirect('login', 'refresh');
+            redirect('user/login', 'refresh');
         }
     }
 
@@ -50,7 +50,7 @@ class VerifyRegistration extends CI_Controller {
         //Field validation succeeded.  Validate against database
         //query the database
        //  $username = $this->input->post('username');
-        $result = $this->User_modelS->user_exist($username);
+        $result = $this->User_model->user_exist($username);
 
         if ($result) {
             $this->form_validation->set_message('check_user', 'Username exist');

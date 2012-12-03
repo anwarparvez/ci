@@ -23,26 +23,29 @@
                     <?php echo validation_errors(); ?>
                 </p>
                 <?php echo form_open('user/verifyedit'); ?>
-                <?php foreach ($query as $row) { ?>
+                <?php  ?>
                     <label for="username">Name:</label>
-                    <input type="text" size="20" value="<?php echo $row->name; ?>" id="name" name="name"/>
+                    <input type="text" size="20" value="<?php echo $user->name; ?>" id="name" name="name"/>
                     <br/>
 
                     <label for="username">Username:</label>
-                    <input type="text" size="20" value="<?php echo $row->username; ?>"id="username" name="username"/>
+                    <?php echo $user->username; ?>
                     <br/>
-                    <label for="password">Password:</label>
-                    <input type="password" size="20" value="<?php echo $row->password; ?>" id="passowrd" name="password"/>
+                     <label for="password">Old Password:</label>
+                    <input type="password" size="20" value="<?php //echo $password; ?>" id="opassowrd" name="opassword"/>
+                    <br/>
+                    <label for="password">New Password:</label>
+                    <input type="password" size="20" value="<?php //echo $password; ?>" id="passowrd" name="npassword"/>
                     <br/>
                     <label for="password">Confirm Password:</label>
-                    <input type="password" size="20" value="<?php echo $row->password; ?>"  id="cpassowrd" name="cpassword"/>
+                    <input type="password" size="20" value="<?php //echo $password; ?>"  id="cpassowrd" name="cpassword"/>
                     <br/>
                     <label for="username">Email :</label>
-                    <input type="text" size="20" value="<?php echo $row->email; ?>" id="email" name="email"/>
+                    <input type="text" size="20" value="<?php echo $user->email; ?>" id="email" name="email"/>
                     <br/>
                     <input type="submit" value="Edit"/>
 
-                <?php } ?></p>
+
                 </form>
 
 

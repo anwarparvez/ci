@@ -2,6 +2,30 @@
 
 Class User_model extends CI_Model {
 
+    public function record_count() {
+        return $this->db->count_all("users");
+    }
+
+    public function fetch_users($limit, $start) {
+        $this->db->limit($limit, $start);
+        $query = $this->db->get("users");
+
+        return $query->result();
+    }
+
+    function get_user_list() {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->order_by('id', 'asc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function delete_user($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+    }
+
     function insert_user() {
         $this->name = $_POST['name']; // please read the below note
         $this->email = $_POST['email'];
@@ -54,6 +78,16 @@ Class User_model extends CI_Model {
         $query = $this->db->get();
         //$query = $this->db->get('entries', 10);
         return $query->result();
+    }
+
+    function edit_user($username) {
+        $this->name = $_POST['name'];
+        $this->password = $_POST['npassword'];
+        $this->email = $_POST['email'];
+
+        // $this->date    = time();
+
+        $this->db->update('users', $this, array('username' => $username));
     }
 
 }

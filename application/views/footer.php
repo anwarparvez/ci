@@ -7,9 +7,7 @@
 
                 <img src="<?php echo base_url(); ?>/images/avatar.gif" alt="Smashing Magazine Logo" class="photo">
 
-                <span class="bio">Smashing Magazine is a website and blog that offers
-                    resources and advice to web developers and web designers. It was
-                    founded by Sven Lennartz and Vitaly Friedman.</span>
+                <span class="bio"></span>
 
             </address><!-- /#about -->
 

@@ -5,9 +5,9 @@
             <li class="active">
                 <?php
                 if ($this->session->userdata('logged_in')) {
-                    echo anchor('news/logout', 'Logout');
+                    echo anchor('user/logout', 'Logout');
                 } else {
-                    echo anchor('login/', 'Login');
+                    echo anchor('user/login', 'Login');
                 }
                 ?>
             </li>
@@ -24,13 +24,38 @@
 
                     $session_data = $this->session->userdata('logged_in');
                     if ($session_data['is_admin'] == 1) {
-                        echo anchor('news/post', 'Create News');
+                        echo anchor('news/post', 'Post News');
                     }
                 }
                 ?>
             </li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li>
+                <?php
+                if ($this->session->userdata('logged_in')) {
+                    echo anchor('user/', 'Profile');
+                }
+                ?>
+            </li>
+            <li>
+                <?php
+                if ($this->session->userdata('logged_in')) {
+
+                    $session_data = $this->session->userdata('logged_in');
+                    if ($session_data['is_admin'] == 1) {
+                        echo anchor('user/ulist', 'User List');
+                    }
+                    else
+                    {
+                        echo ' <a href="#">About us</a>';
+                    }
+                }
+                else
+                {
+                    echo ' <a href="#">About us</a>';
+                }
+                ?>
+
+            </li>
         </ul>
     </nav>
 </header><!-- /#banner -->
