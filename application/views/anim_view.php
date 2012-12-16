@@ -117,7 +117,7 @@
 <div id="gallery">
     <?php foreach ($nquery as $row) { ?>
 
-        <a href="<?php echo base_url().'news/detail/' . $row->id; ?>" class="show">
+        <a href="<?php echo base_url().'index.php/news/detail/' . $row->id; ?>" class="show">
             <img src="<?php echo base_url(); ?>uploads/<?php echo $row->photo; ?>"
                  alt="<?php echo $row->title; ?>" width="580" height="360" title="" alt=""
                  rel="<h3><?php echo $row->title; ?></h3><?php echo $row->sbody; ?>. "/>
