@@ -22,7 +22,25 @@
                             </h2>
 
                         </header>
-                       
+                        <br/>
+                        <div class="entry-content">
+
+                            Category:
+                            <p>
+                                <select name="category">
+                                    <option value="0">Editorial</option>
+                                    <option value="1">National</option>
+                                    <option value="2">International</option>
+                                    <option value="3">Business</option>
+                                    <option value="4">Arts & Entertainment</option>
+                                    <option value="5">Sports</option>
+                                </select>
+                            </p>
+
+                        </div><!-- /.entry-content -->
+                        <br/>
+
+
 
                         <div class="entry-content">
                             Short Body:
@@ -31,7 +49,7 @@
 
                         <div class="entry-content">
                             Body:
-                                <p><textarea placeholder="Body of news here!" name="body" cols="80" rows="5"></textarea></p>
+                            <p><textarea placeholder="Body of news here!" name="body" cols="80" rows="5"></textarea></p>
                         </div><!-- /.entry-content -->
                         <br/>
                         <input type="submit" value="Post"/>

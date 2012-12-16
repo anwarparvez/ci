@@ -12,11 +12,11 @@
         <?php include_once 'header.php'; ?>
 
         <?php foreach ($query as $row) { ?>
+
             <aside id="featured" class="body">
+
                 <article>
-                    <!--                    <figure>
-                                            <img src="images/sm-logo.gif" alt="Smashing Magazine">
-                                        </figure>-->
+
                     <hgroup>
                         <h2>  <?php echo anchor('news/detail/' . $row->id, $row->title); ?></h2>
                         <?php
@@ -37,6 +37,13 @@
                         </h6>
 
                     </hgroup>
+                    <?php if( $row->photo){?>
+                    <figure style="overflow:auto">
+                        <a href="<?php echo base_url(); ?>uploads/<?php echo $row->photo; ?>" style="">
+                        <img style="height: 250px ;width: 250px"src="<?php echo base_url(); ?>uploads/<?php echo $row->photo; ?>" alt="Smashing Magazine">
+                    </a>
+                        </figure>
+                    <?php }?>
                     <p><?php echo $row->body ?></p>
                 </article>
             </aside><!-- /#featured -->
@@ -62,7 +69,14 @@
 
 
                             <div class="entry-content">
-                                <p><?php echo $row->body; ?></p>
+                                <p><?php
+                                echo $row->body;
+
+                                $session_data = $this->session->userdata('logged_in');
+                                $owner = $session_data['username'];
+                                if ($owner == $row->author)
+                                    echo "   " . anchor('news/comment_delete/' . $this->uri->segment(3) . '/' . $row->id, 'delete');
+                                    ?></p>
                             </div><!-- /.entry-content -->
                         </article>
                     </li>
@@ -111,7 +125,7 @@
 
         <?php foreach ($query as $row) { ?>
 
-                                                    <li> <?php echo anchor('news/detail/' . $row->id, $row->title); ?></li>
+                                                                    <li> <?php echo anchor('news/detail/' . $row->id, $row->title); ?></li>
         <?php } ?>
                         </ul>
                     </div>

@@ -17,7 +17,7 @@ class Comment_model extends CI_Model {
 //        $this->db->where('entry_id = ' . "'" . $entry_id . "'");
 //
 //       // $query = $this->db->get();
-        $sql = "select author,body,date from comments where entry_id = ? order by date asc";
+        $sql = "select author,body,date,id from comments where entry_id = ? order by date asc";
 
         $query = $this->db->query($sql, array($entry_id));
         return $query->result();
@@ -38,6 +38,12 @@ class Comment_model extends CI_Model {
     function delete_comment_by_news_id($news_id) {
 
         $this->db->where('entry_id', $news_id);
+        $this->db->delete('comments');
+    }
+
+    function delete_comment_by_id($comment_id) {
+
+        $this->db->where('id', $comment_id);
         $this->db->delete('comments');
     }
 

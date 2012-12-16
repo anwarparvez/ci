@@ -8,7 +8,10 @@
 
     <body id="index" class="home">
 
-        <?php include 'header.php' ?>
+        <?php
+        include 'header.php'
+        ?>
+
 
         <!--        <aside id="featured" class="body">
                     <article>
@@ -24,6 +27,10 @@
                 </aside> /#featured -->
 
         <section id="content" class="body">
+            <?php
+            if ($this->uri->segment(2) == 'home')
+                include 'anim_view.php';
+            ?>
 
             <ol id="posts-list" class="hfeed">
                 <?php foreach ($query as $row) { ?>

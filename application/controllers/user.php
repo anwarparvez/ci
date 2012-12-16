@@ -24,7 +24,6 @@ class User extends CI_Controller {
         }
     }
 
-
     function ulist() {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
@@ -147,6 +146,28 @@ class User extends CI_Controller {
         $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect('news/', 'refresh');
+    }
+
+    function about() {
+        $this->load->view('about_view');
+    }
+
+    function tlist() {
+        if ($this->session->userdata('logged_in')) {
+            $this->load->library('pagination');
+            $config['base_url'] = base_url() . '/index.php/user/tlist/';
+            $config['total_rows'] = $this->User_model->record_count();
+            $limit = $config['per_page'] = 10;
+            $start = $this->uri->segment(3);
+            $data['query'] = $this->User_model->fetch_users($limit, $start);
+
+            $this->pagination->initialize($config);
+            $data["links"] = $this->pagination->create_links();
+            $this->load->view('user_table', $data);
+            // echo $this->pagination->create_links();
+        } else {
+            redirect('user/login', 'refresh');
+        }
     }
 
 }
